@@ -1,16 +1,16 @@
 ﻿using System;
-using NUnit.Framework;
+using Xunit;
 using SharpTestsEx;
 using Moq;
-using Memento.Messaging;
 using Raven.Client.Document;
+using MementoFX.Messaging;
+using MementoFX.Persistence.RavenDB;
 
 namespace Memento.Persistence.RavenDB.Tests
 {
-    [TestFixture]
     public class RavenDbEventStoreFixture
     {
-        [Test]
+        [Fact]
         public void Ctor_should_throw_ArgumentNullException_on_null_documentStore_and_value_of_parameter_should_be_documentStore()
         {
             var bus = new Mock<IEventDispatcher>().Object;
@@ -25,7 +25,7 @@ namespace Memento.Persistence.RavenDB.Tests
                            .EqualTo("documentStore");
         }
 
-        [Test]
+        [Fact]
         public void Ctor_should_throw_ArgumentNullException_on_null_bus_and_value_of_parameter_should_be_bus()
         {
             var documentStore = new Mock<DocumentStore>().Object;
@@ -40,8 +40,7 @@ namespace Memento.Persistence.RavenDB.Tests
                            .EqualTo("eventDispatcher");
         }
 
-        [Ignore("Not implemented yet")]
-        [Test]
+        [Fact]
         public void Ctor_should_set_DocumentStore_field()
         {
             var bus = new Mock<IEventDispatcher>().Object;

@@ -8,11 +8,11 @@ using Raven.Client;
 using Raven.Client.Document;
 using Raven.Client.Indexes;
 using Raven.Json.Linq;
-using Memento.Messaging;
-using Memento.Persistence.RavenDB.Indexes;
-using Memento.Persistence.RavenDB.Listeners;
+using MementoFX.Messaging;
+using MementoFX.Persistence.RavenDB.Indexes;
+using MementoFX.Persistence.RavenDB.Listeners;
 
-namespace Memento.Persistence.RavenDB
+namespace MementoFX.Persistence.RavenDB
 {
     /// <summary>
     /// Provides an implementation of a Memento event store

@@ -1,12 +1,7 @@
 ﻿using Raven.Abstractions.Indexing;
 using Raven.Client.Indexes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Memento.Persistence.RavenDB.Indexes
+namespace MementoFX.Persistence.RavenDB.Indexes
 {
     public class DomainEvents_Stream : AbstractIndexCreationTask
     {
@@ -15,7 +10,7 @@ namespace Memento.Persistence.RavenDB.Indexes
             return new IndexDefinition()
             {
                 Name = "DomainEvents/Stream",
-                Map = @"from evt in docs
+                Maps = new System.Collections.Generic.HashSet<string>() { @"from evt in docs
 						let mtd = evt[""@metadata""]
                         where mtd[""Memento-DomainEvent""] != null
 						select new
@@ -25,7 +20,7 @@ namespace Memento.Persistence.RavenDB.Indexes
 							Id = evt.__document_id,
 							TimelineId = evt.TimelineId,
 							TimeStamp = evt.TimeStamp
-						}"
+						}" }
             };
         }
     }

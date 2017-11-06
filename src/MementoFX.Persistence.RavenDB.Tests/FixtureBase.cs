@@ -1,27 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
-using Moq;
+﻿using Moq;
 using Raven.Client.Document;
 using Raven.Client.Indexes;
 using Raven.Tests.Helpers;
-using Memento.Messaging;
-using Memento.Persistence.RavenDB.Indexes;
-using Memento.Persistence.RavenDB.Listeners;
+using MementoFX.Messaging;
+using MementoFX.Persistence.RavenDB.Indexes;
+using MementoFX.Persistence.RavenDB.Listeners;
+using MementoFX.Persistence.RavenDB;
+using System;
 
 namespace Memento.Persistence.RavenDB.Tests
 {
-    public class FixtureBase : RavenTestBase
+    public class FixtureBase : RavenTestBase, IDisposable
     {
         protected DocumentStore documentStore;
         protected DocumentStore eventDocumentStore;
         protected RavenDbEventStore MementoEventStore;
 
-        [SetUp]
-        public void SetUp()
+        public FixtureBase()
         {
             using (var ravenDocumentStore = new DocumentStore() { ConnectionStringName = "RavenDbInstance" })
             {
@@ -56,8 +51,7 @@ namespace Memento.Persistence.RavenDB.Tests
             MementoEventStore = mementoEventStore;
         }
 
-        [TearDown]
-        public void CleanUp()
+        void IDisposable.Dispose()
         {
             documentStore.Dispose();
             eventDocumentStore.Dispose();

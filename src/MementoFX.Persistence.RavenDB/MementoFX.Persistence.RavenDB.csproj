@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <Authors>andysal, mastreeno</Authors>
+    <Company>Mastreeno ltd</Company>
+    <Description>A RavenDB powered event store for MementoFX</Description>
+    <Copyright>© 2017 Andrea Saltarello, Mastreeno ltd</Copyright>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
+    <PackageLicenseUrl>https://opensource.org/licenses/RPL-1.5</PackageLicenseUrl>
+    <PackageProjectUrl>https://mementofx.mastreeno.com</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/MementoFX/MementoFX.Persistence.RavenDB</RepositoryUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <SignAssembly>false</SignAssembly>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>2.0.0-pre1</Version>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\MementoFX.Persistence.RavenDB.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\MementoFX.Persistence.RavenDB.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MementoFX" Version="2.0.0-pre5" />
+    <PackageReference Include="RavenDB.Client" Version="3.5.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+</Project>
